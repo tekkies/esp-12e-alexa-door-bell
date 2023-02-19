@@ -1,19 +1,185 @@
-* Schematics Netlist created on 02/19/23 at 21:19:53 -0000 *
+[
+D1
+AX3_1
+1N4007
 
-NO_MODEL found on C1
-NO_MODEL found on C2
-NO_MODEL found on D1
-NO_MODEL found on D2
-NO_MODEL found on D3
-NO_MODEL found on D4
-NO_MODEL found on D5
-NO_MODEL found on D6
-NO_MODEL found on J1
-NO_MODEL found on J2
-NO_MODEL found on J3
-NO_MODEL found on R1
-NO_MODEL found on R2
-NO_MODEL found on R3
-NO_MODEL found on R4
-NO_MODEL found on U?
 
+
+]
+[
+D3
+AX3_1
+1N4007
+
+
+
+]
+[
+D4
+AX3_1
+1N4007
+
+
+
+]
+[
+D2
+AX3_1
+1N4007
+
+
+
+]
+[
+U?
+TO220
+LM317
+
+
+
+]
+[
+C1
+RA2_4
+330u
+
+
+
+]
+[
+R1
+AX3_1N
+120R
+
+
+
+]
+[
+R2
+AX3_1N
+200R
+
+
+
+]
+[
+C2
+RA1_2
+10u
+
+
+
+]
+[
+J2
+SIP8
+LHS
+
+
+
+]
+[
+J3
+SIP8
+RHS
+
+
+
+]
+[
+J1
+SIP4
+Conn_4
+
+
+
+]
+[
+D6
+AX2_1
+1N4148
+
+
+
+]
+[
+D5
+AX2_1
+1N4148
+
+
+
+]
+[
+R4
+AX3_1N
+1k
+
+
+
+]
+[
+R3
+AX3_1N
+10k
+
+
+
+]
+(
+N000001
+D1-1
+D4-1
+C1-1
+U?-3
+)
+(
+N000002
+R2-1
+U?-1
+R1-2
+)
+(
+N000003
+R2-2
+C2-2
+D2-2
+D3-2
+C1-2
+J3-8
+D6-2
+)
+(
+N000017
+J1-1
+D3-1
+D1-2
+)
+(
+N000018
+J1-2
+D2-1
+D4-2
+)
+(
+N000020
+J1-4
+R4-2
+)
+(
+N000022
+D5-1
+R3-1
+J2-8
+C2-1
+R1-1
+U?-2
+)
+(
+N000021
+R4-1
+J3-4
+R3-2
+D5-2
+D6-1
+)
