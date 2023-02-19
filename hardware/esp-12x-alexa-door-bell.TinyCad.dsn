@@ -806,7 +806,6 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 			<HINT pin='3' net='19'/>
 			<HINT pin='4' net='20'/>
 		</SYMBOL>
-		<NOCONNECT pos='14.00000,66.00000'/>
 		<WIRE a='10.00000,60.00000' b='20.00000,60.00000'/>
 		<WIRE a='10.00000,63.00000' b='20.00000,63.00000'/>
 		<WIRE a='20.00000,63.00000' b='20.00000,84.00000'/>
@@ -869,6 +868,8 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
 			<FIELD type='2' description='$$SPICE_EPILOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
 			<FIELD type='1' description='Package' value='AX3_1N' show='0' pos='1.00000,-3.20000'/>
+			<HINT pin='1' net='22'/>
+			<HINT pin='2' net='21'/>
 		</SYMBOL>
 		<JUNCTION pos='236.00000,73.00000'/>
 		<WIRE a='222.00000,66.00000' b='222.00000,73.00000'/>
@@ -882,5 +883,6 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<TEXT pos='22.00000,60.00000' direction='3' font='0' color='000000'>15vAC</TEXT>
 		<TEXT pos='22.00000,66.00000' direction='3' font='0' color='000000'>15V AC</TEXT>
 		<TEXT pos='14.00000,90.00000' direction='0' font='0' color='000000'>Bell Switch</TEXT>
+		<NOCONNECT pos='10.00000,66.00000'/>
 	</TinyCAD>
 </TinyCADSheets>
