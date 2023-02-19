@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "memory": "cpp"
+    },
+    "idf.portWin": "COM8"
+}
