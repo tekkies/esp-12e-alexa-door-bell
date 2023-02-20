@@ -1,5 +1,5 @@
 # esp-12e-alexa-door-bell
-Announce the doorbell on Alexa using ESP-12E WiFi module
+Announce the doorbell on Alexa using ESP-12E WiFi module from a 15V AC or DC power supply.
 
 ## Circuit Design
 ![Circuit Design](hardware/esp-12e-alexa-door-bell.TinyCad.png)
