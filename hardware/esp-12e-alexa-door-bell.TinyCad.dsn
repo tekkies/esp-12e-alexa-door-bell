@@ -19,9 +19,9 @@ download the executable.-->
 			<DATE></DATE>
 			<GRID spacing='100.00000' snap='1'/>
 		</DETAILS>
-		<FONT id='0'>
-			<HEIGHT>-13</HEIGHT>
-			<WIDTH>6</WIDTH>
+		<FONT id='1'>
+			<HEIGHT>-10</HEIGHT>
+			<WIDTH>0</WIDTH>
 			<WEIGHT>400</WEIGHT>
 			<ITALIC>0</ITALIC>
 			<UNDERLINE>0</UNDERLINE>
@@ -29,9 +29,9 @@ download the executable.-->
 			<CHARSET>0</CHARSET>
 			<FACENAME>Arial</FACENAME>
 		</FONT>
-		<FONT id='1'>
-			<HEIGHT>-10</HEIGHT>
-			<WIDTH>0</WIDTH>
+		<FONT id='3'>
+			<HEIGHT>-13</HEIGHT>
+			<WIDTH>6</WIDTH>
 			<WEIGHT>400</WEIGHT>
 			<ITALIC>0</ITALIC>
 			<UNDERLINE>0</UNDERLINE>
@@ -48,7 +48,7 @@ download the executable.-->
 			<INDEX>-1</INDEX>
 			<COLOR>000000</COLOR>
 		</FILL>
-		<IMAGE id='4' type='PNG'>
+		<IMAGE id='1' type='PNG'>
 			<UUENCODE size='9584'>
 MB5!.1PT*&amp;@H    -24A$4@   2P   (*&quot; ,   &quot;NOH+Q   # %!,5$4/  # 
 M0$    #@L+#?CX\/#P&quot;PL+&quot;OKZ^@H*&quot;/8 # H%^_D  ?&#039;Q^P@ &quot;?GY^_D%^_
@@ -314,7 +314,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 				</POLYGON>
 			</TinyCAD>
 		</SYMBOLDEF>
-		<SYMBOLDEF id='3'>
+		<SYMBOLDEF id='2'>
 			<NAME type='0'>LM317</NAME>
 			<REF type='0'>U?</REF>
 			<DESCRIPTION>Regulator</DESCRIPTION>
@@ -349,7 +349,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 				<PIN pos='20.00000,22.00000' which='0' elec='0' direction='3' part='0' number='3' show='3' length='20' number_pos='0' centre_name='0'>In</PIN>
 			</TinyCAD>
 		</SYMBOLDEF>
-		<SYMBOLDEF id='4'>
+		<SYMBOLDEF id='3'>
 			<NAME type='0'>C-ELECTRO_RA2_4</NAME>
 			<REF type='0'>C?</REF>
 			<DESCRIPTION>Electrolytic 2 pitch, 4 diameter</DESCRIPTION>
@@ -401,7 +401,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 				</POLYGON>
 			</TinyCAD>
 		</SYMBOLDEF>
-		<SYMBOLDEF id='5'>
+		<SYMBOLDEF id='4'>
 			<NAME type='0'>Resistor_0.25</NAME>
 			<REF type='0'>R?</REF>
 			<DESCRIPTION>0.25 Watt</DESCRIPTION>
@@ -435,7 +435,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 				<RECTANGLE a='20.00000,24.00000' b='22.00000,28.00000' style='2' fill='0'/>
 			</TinyCAD>
 		</SYMBOLDEF>
-		<SYMBOLDEF id='6'>
+		<SYMBOLDEF id='5'>
 			<NAME type='0'>C-ELECTRO_RA1_2</NAME>
 			<REF type='0'>C?</REF>
 			<DESCRIPTION>Electrolytic 1 pitch, 2 diameter</DESCRIPTION>
@@ -487,7 +487,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 				</POLYGON>
 			</TinyCAD>
 		</SYMBOLDEF>
-		<SYMBOLDEF id='7'>
+		<SYMBOLDEF id='6'>
 			<NAME type='0'>Conn_8</NAME>
 			<REF type='0'>J?</REF>
 			<DESCRIPTION>Connector 8 pin</DESCRIPTION>
@@ -527,7 +527,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 				<PIN pos='20.00000,43.00000' which='0' elec='0' direction='3' part='0' number='8' show='3' length='30' number_pos='0' centre_name='0'></PIN>
 			</TinyCAD>
 		</SYMBOLDEF>
-		<SYMBOLDEF id='12'>
+		<SYMBOLDEF id='7'>
 			<NAME type='0'>Conn_4</NAME>
 			<REF type='0'>J?</REF>
 			<DESCRIPTION>Connector 4 Pin</DESCRIPTION>
@@ -563,7 +563,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 				<PIN pos='20.00000,31.00000' which='0' elec='0' direction='3' part='0' number='4' show='3' length='30' number_pos='0' centre_name='0'></PIN>
 			</TinyCAD>
 		</SYMBOLDEF>
-		<SYMBOLDEF id='13'>
+		<SYMBOLDEF id='8'>
 			<NAME type='0'>1N4148</NAME>
 			<REF type='0'>D?</REF>
 			<DESCRIPTION>Diode Switching 75V 200mA</DESCRIPTION>
@@ -682,7 +682,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<JUNCTION pos='40.00000,74.00000'/>
 		<JUNCTION pos='66.00000,46.00000'/>
 		<WIRE a='88.00000,46.00000' b='98.00000,46.00000'/>
-		<SYMBOL id='3' pos='116.00000,54.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='2' pos='116.00000,54.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='U?' show='1' pos='1.00000,-5.60000'/>
 			<FIELD type='0' description='Name' value='LM317' show='1' pos='1.00000,-8.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -692,7 +692,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 			<HINT pin='2' net='22'/>
 			<HINT pin='3' net='1'/>
 		</SYMBOL>
-		<SYMBOL id='4' pos='90.00000,70.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='3' pos='90.00000,70.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='C1' show='1' pos='1.00000,-1.60000'/>
 			<FIELD type='0' description='Name' value='330u' show='1' pos='1.00000,-4.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -707,7 +707,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<WIRE a='88.00000,70.00000' b='88.00000,90.00000'/>
 		<WIRE a='88.00000,90.00000' b='40.00000,90.00000'/>
 		<WIRE a='40.00000,74.00000' b='40.00000,90.00000'/>
-		<SYMBOL id='5' pos='126.00000,64.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='4' pos='126.00000,64.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='R1' show='1' pos='1.00000,-5.60000'/>
 			<FIELD type='0' description='Name' value='120R' show='1' pos='1.00000,-8.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -717,7 +717,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 			<HINT pin='1' net='22'/>
 			<HINT pin='2' net='2'/>
 		</SYMBOL>
-		<SYMBOL id='5' pos='126.00000,82.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='4' pos='126.00000,82.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='R2' show='1' pos='1.00000,-5.60000'/>
 			<FIELD type='0' description='Name' value='200R' show='1' pos='1.00000,-8.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -728,7 +728,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 			<HINT pin='1' net='2'/>
 			<HINT pin='2' net='3'/>
 		</SYMBOL>
-		<SYMBOL id='6' pos='150.00000,68.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='5' pos='150.00000,68.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='C2' show='1' pos='1.00000,-1.60000'/>
 			<FIELD type='0' description='Name' value='10u' show='1' pos='1.00000,-4.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -755,7 +755,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<WIRE a='148.00000,46.00000' b='124.00000,46.00000'/>
 		<JUNCTION pos='124.00000,90.00000'/>
 		<WIRE a='124.00000,90.00000' b='88.00000,90.00000'/>
-		<SYMBOL id='7' pos='176.00000,88.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='6' pos='176.00000,88.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='J2' show='1' pos='-3.00000,-25.60000'/>
 			<FIELD type='0' description='Name' value='LHS' show='1' pos='-5.00000,-28.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -770,8 +770,8 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 			<HINT pin='7' net='10'/>
 			<HINT pin='8' net='22'/>
 		</SYMBOL>
-		<METAFILE a='176.00000,50.00000' b='201.40000,88.00000' id='4'/>
-		<SYMBOL id='7' pos='210.00000,88.00000' part='0' rotate='4' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<METAFILE a='176.00000,50.00000' b='201.40000,88.00000' id='1'/>
+		<SYMBOL id='6' pos='210.00000,88.00000' part='0' rotate='4' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='J3' show='1' pos='-7.00000,-25.60000'/>
 			<FIELD type='0' description='Name' value='RHS' show='1' pos='-7.00000,-28.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -795,7 +795,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<WIRE a='210.00000,85.00000' b='214.00000,85.00000'/>
 		<WIRE a='214.00000,85.00000' b='214.00000,90.00000'/>
 		<WIRE a='148.00000,90.00000' b='214.00000,90.00000'/>
-		<SYMBOL id='12' pos='10.00000,72.00000' part='0' rotate='4' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='7' pos='10.00000,72.00000' part='0' rotate='4' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='J1' show='1' pos='-7.00000,-15.60000'/>
 			<FIELD type='0' description='Name' value='Conn_4' show='0' pos='-7.00000,-14.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -812,7 +812,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<WIRE a='20.00000,60.00000' b='20.00000,46.00000'/>
 		<WIRE a='10.00000,69.00000' b='16.00000,69.00000'/>
 		<WIRE a='16.00000,69.00000' b='16.00000,94.00000'/>
-		<SYMBOL id='13' pos='238.00000,88.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='8' pos='238.00000,88.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='D6' show='1' pos='1.00000,-5.60000'/>
 			<FIELD type='0' description='Name' value='1N4148' show='1' pos='1.00000,-8.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -821,7 +821,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 			<HINT pin='1' net='21'/>
 			<HINT pin='2' net='3'/>
 		</SYMBOL>
-		<SYMBOL id='13' pos='238.00000,64.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='8' pos='238.00000,64.00000' part='0' rotate='5' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='D5' show='1' pos='1.00000,-5.60000'/>
 			<FIELD type='0' description='Name' value='1N4148' show='1' pos='1.00000,-8.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -836,7 +836,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<WIRE a='236.00000,73.00000' b='236.00000,64.00000'/>
 		<WIRE a='236.00000,55.00000' b='236.00000,46.00000'/>
 		<WIRE a='222.00000,46.00000' b='158.00000,46.00000'/>
-		<SYMBOL id='5' pos='254.00000,88.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='4' pos='254.00000,88.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='R4' show='1' pos='1.00000,-5.60000'/>
 			<FIELD type='0' description='Name' value='1k' show='1' pos='1.00000,-8.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -862,7 +862,7 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<NOCONNECT pos='210.00000,76.00000'/>
 		<NOCONNECT pos='210.00000,79.00000'/>
 		<NOCONNECT pos='210.00000,82.00000'/>
-		<SYMBOL id='5' pos='224.00000,66.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
+		<SYMBOL id='4' pos='224.00000,66.00000' part='0' rotate='0' can_scale='0' show_power='0' scale_x='1.00000' scale_y='1.00000'>
 			<FIELD type='0' description='Ref' value='R3' show='1' pos='1.00000,-5.60000'/>
 			<FIELD type='0' description='Name' value='10k' show='1' pos='1.00000,-8.00000'/>
 			<FIELD type='2' description='$$SPICE_PROLOG_PRIORITY' value='5' show='0' pos='0.00000,0.00000'/>
@@ -880,9 +880,9 @@ L&lt;JJ&quot;!EZ^:EZOE:N54Q4T$ ^;]]7*U?X_\[9^NHN;J1X     245.1*Y&quot;8((
 		<WIRE a='236.00000,46.00000' b='222.00000,46.00000'/>
 		<WIRE a='252.00000,78.00000' b='252.00000,73.00000'/>
 		<WIRE a='252.00000,73.00000' b='236.00000,73.00000'/>
-		<TEXT pos='22.00000,60.00000' direction='3' font='0' color='000000'>15vAC</TEXT>
-		<TEXT pos='22.00000,66.00000' direction='3' font='0' color='000000'>15V AC</TEXT>
-		<TEXT pos='14.00000,90.00000' direction='0' font='0' color='000000'>Bell Switch</TEXT>
+		<TEXT pos='22.00000,60.00000' direction='3' font='3' color='000000'>15vAC</TEXT>
+		<TEXT pos='22.00000,66.00000' direction='3' font='3' color='000000'>15V AC</TEXT>
+		<TEXT pos='14.00000,90.00000' direction='0' font='3' color='000000'>Bell Switch</TEXT>
 		<NOCONNECT pos='10.00000,66.00000'/>
 	</TinyCAD>
 </TinyCADSheets>
