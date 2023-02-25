@@ -1,6 +1,6 @@
 //Builkd using Arduino IDE
 //Arduino ISE Board: NodeMCU 1.0 (ESP-12E Module)
-//#include <GDBStub.h>
+#include <GDBStub.h>
 #include <ESP8266WiFi.h>
 
 #include "config.h"
@@ -8,6 +8,7 @@
 #include "stateMachine.h"
 
 const char version[] = "0.0.1";
+int epoch = 0;
 
 ADC_MODE(ADC_VCC);
 
@@ -44,7 +45,12 @@ class FlipState : IState {
     void execute()
     {
       IState::execute();
-      digitalWrite(LED_BUILTIN,1);
+      int mod = epoch % 10;
+      Serial.printf("mod = %d\n", mod);
+      if(mod < 2)
+      {
+        digitalWrite(LED_BUILTIN,0);
+      }
       Serial.println("Flip");  
       
       setState("FlopState");
@@ -63,7 +69,7 @@ class FlopState : IState {
     void execute()
     {
       IState::execute();
-      digitalWrite(LED_BUILTIN,0);
+      digitalWrite(LED_BUILTIN,1);
       if(digitalRead(2) > 0)
       {
         Serial.println("State: 1");  
@@ -93,9 +99,8 @@ IState *states[] =
 void setup() {
   pinMode(4, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
-  
   Serial.begin(115200);
-  //gdbstub_init();
+  gdbstub_init();
   Serial.println("setup");  
   WiFi.begin(ssid, pass);
   setState("FlipState");
@@ -103,7 +108,9 @@ void setup() {
 
 
 void loop() {
-  Serial.println("loop");
+  epoch++;
+  Serial.print("loop ");
+  Serial.println(epoch);
   
   //Serial.println(state->stateName);  
   if(WiFi.status() == WL_CONNECTED) {
