@@ -11,7 +11,7 @@ const char version[] = "0.0.1";
 int epoch = 0;
 
 ADC_MODE(ADC_VCC);
-
+#define GPIO_4 5
 
 class SuccessState : IState {
   public: 
@@ -70,14 +70,8 @@ class FlopState : IState {
     {
       IState::execute();
       digitalWrite(LED_BUILTIN,1);
-      if(digitalRead(2) > 0)
-      {
-        Serial.println("State: 1");  
-      }
-      else
-      {
-        Serial.println("State: 0");  
-      }
+      int read = digitalRead(GPIO_4);
+      Serial.printf("                                                   Read = %d\n", read);
       Serial.println("Flop");  
       setState("FlipState");
     }
@@ -97,7 +91,7 @@ IState *states[] =
 
 
 void setup() {
-  pinMode(4, INPUT);
+  pinMode(GPIO_4, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   gdbstub_init();
