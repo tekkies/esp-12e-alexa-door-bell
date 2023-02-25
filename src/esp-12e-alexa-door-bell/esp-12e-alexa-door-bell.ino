@@ -11,7 +11,7 @@ const char version[] = "0.0.1";
 int epoch = 0;
 
 ADC_MODE(ADC_VCC);
-#define GPIO_4 5
+#define GPIO_4 4
 
 class SuccessState : IState {
   public: 
