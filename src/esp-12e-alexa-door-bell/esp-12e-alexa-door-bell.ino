@@ -1,5 +1,6 @@
 //Builkd using Arduino IDE
 //Arduino ISE Board: NodeMCU 1.0 (ESP-12E Module)
+//#include <GDBStub.h>
 #include <ESP8266WiFi.h>
 
 #include "config.h"
@@ -43,7 +44,9 @@ class FlipState : IState {
     void execute()
     {
       IState::execute();
+      digitalWrite(LED_BUILTIN,1);
       Serial.println("Flip");  
+      
       setState("FlopState");
     }
 };
@@ -60,6 +63,15 @@ class FlopState : IState {
     void execute()
     {
       IState::execute();
+      digitalWrite(LED_BUILTIN,0);
+      if(digitalRead(2) > 0)
+      {
+        Serial.println("State: 1");  
+      }
+      else
+      {
+        Serial.println("State: 0");  
+      }
       Serial.println("Flop");  
       setState("FlipState");
     }
@@ -79,7 +91,11 @@ IState *states[] =
 
 
 void setup() {
+  pinMode(4, INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+  
   Serial.begin(115200);
+  //gdbstub_init();
   Serial.println("setup");  
   WiFi.begin(ssid, pass);
   setState("FlipState");
