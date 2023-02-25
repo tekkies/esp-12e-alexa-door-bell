@@ -1,0 +1,5 @@
+[*] --> Sense
+Sense --> Report: SwitchPushed
+Report : <<entry>> / NotifyAlexa
+Report --> Delay : NoAction
+Delay --> Sense : Complete
