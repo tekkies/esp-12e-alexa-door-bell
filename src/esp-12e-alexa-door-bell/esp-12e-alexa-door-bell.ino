@@ -6,6 +6,23 @@
 #include "config.h"
 #include "secrets.h"
 #include "stateMachine.h"
+#include "StateMachine.hpp"
+
+
+class MyStateMachine : public StateMachine
+{
+public:
+    MyStateMachine()
+    {
+        InitStateMachine();
+    }
+
+    void NotifyAlexa() override {
+        Serial.printf("NotifyAlexa() called\r\n");
+    }
+};
+MyStateMachine* myStateMachine;
+
 
 const char version[] = "0.0.1";
 int epoch = 0;
@@ -96,8 +113,9 @@ void setup() {
   Serial.begin(115200);
   gdbstub_init();
   Serial.println("setup");  
+  myStateMachine = new MyStateMachine();
   WiFi.begin(ssid, pass);
-  setState("FlipState");
+  //setState("FlipState");
 }
 
 
@@ -111,5 +129,19 @@ void loop() {
     Serial.println("");
     Serial.println("WiFi Connected");
   }
-  state->execute();
+  
+
+
+  StateId currentState = myStateMachine->CurrentState();
+  std::string name = (StateNames.find(currentState))->second;
+  Serial.printf("State: %s\r\n", name.c_str());
+  switch (currentState)
+  {
+  case StateId_Sense:
+      if (!digitalRead(GPIO_4))
+      {
+          myStateMachine->SwitchPushed();
+      }
+      break;
+  }
 }
