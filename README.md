@@ -9,3 +9,10 @@ Announce the doorbell on Alexa using ESP-12E WiFi module from a 15V AC or DC pow
 
 ## Power Supply Design
  ![Power Supply Simulator](hardware/power-supply.ltspice.png)
+
+ # Credits
+Built standing on the shoulders of these giants:
+ - [LTspice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html)
+ - [TinyCAD by matt123p](https://github.com/matt123p/TinyCAD)
+ - [VeeCAD by Roger Lascelles](http://veecad.com)
+ - [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
