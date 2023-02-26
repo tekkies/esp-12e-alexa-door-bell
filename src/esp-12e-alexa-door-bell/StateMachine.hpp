@@ -21,6 +21,18 @@ public:
 
     StateId CurrentState() const override { return currentState->GetId(); }
 
+    void NoAction() override
+    {
+        currentState->NoAction();
+        ChangeStateIfNecessary();
+    }
+    
+    void WiFiConnected() override
+    {
+        currentState->WiFiConnected();
+        ChangeStateIfNecessary();
+    }
+    
     void Complete() override
     {
         currentState->Complete();
@@ -30,12 +42,6 @@ public:
     void SwitchPushed() override
     {
         currentState->SwitchPushed();
-        ChangeStateIfNecessary();
-    }
-    
-    void NoAction() override
-    {
-        currentState->NoAction();
         ChangeStateIfNecessary();
     }
     
@@ -52,6 +58,9 @@ private:
         {
         case StateId_FloHsmInitial_5OdpEA31BEcPrWrNx8u7:
             currentState = new (stateStorage)FloHsmInitial_5OdpEA31BEcPrWrNx8u7(previousStateId, toState, this, this);
+            break;
+        case StateId_ConnectWiFi:
+            currentState = new (stateStorage)ConnectWiFi(previousStateId, toState, this, this);
             break;
         case StateId_Sense:
             currentState = new (stateStorage)Sense(previousStateId, toState, this, this);

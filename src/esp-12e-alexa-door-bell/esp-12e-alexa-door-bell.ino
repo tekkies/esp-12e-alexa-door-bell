@@ -8,29 +8,41 @@
 #include "StateMachine.hpp"
 
 
+int flashOnMs = 1;
+int flashOffMs = 1;
+void FlashMode(int onMs, int offMs)
+{
+  flashOnMs = onMs;
+  flashOffMs = offMs;
+}
+
 class DoorbellStateMachine : public StateMachine
 {
 public:
-    DoorbellStateMachine()
-    {
+    DoorbellStateMachine() {
         InitStateMachine();
     }
 
-    void Execute()
-    {
+    void Execute() {
       EvaluateEvents();
     }
 
     void EvaluateEvents()
     {
-      switch (CurrentState())
-      {
+      switch (CurrentState()) {
+      case StateId_ConnectWiFi:
+        FlashMode(500, 500);
+        if(WiFi.status() == WL_CONNECTED) {
+          WiFiConnected();
+        }
+        break;
+
       case StateId_Sense:
-          if (!digitalRead(4))
-          {
-              SwitchPushed();
-          }
-          break;
+        FlashMode(10, 200);
+        if (!digitalRead(4)) {
+          SwitchPushed();
+        }
+        break;
       }
     }
 
@@ -55,8 +67,8 @@ void setup() {
 
 
 void loop() {
+  digitalWrite(LED_BUILTIN,millis() % (flashOnMs+flashOffMs) > flashOnMs);
   epoch++;
-  digitalWrite(LED_BUILTIN,epoch % 10 ? 0 : 1);
   Serial.println(epoch);
   
   if(WiFi.status() == WL_CONNECTED) {

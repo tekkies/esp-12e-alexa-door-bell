@@ -29,7 +29,7 @@ public:
     {
         if (MustCallEntry(Id, fromState, toState))
         {
-            SetTransitionDetails(StateId_Sense, Function());
+            SetTransitionDetails(StateId_ConnectWiFi, Function());
         }
     }
 
@@ -40,6 +40,28 @@ public:
     
 private:
     static const StateId Id = StateId_FloHsmInitial_5OdpEA31BEcPrWrNx8u7;
+
+};
+
+class ConnectWiFi : public StateBase
+{
+public:
+    ConnectWiFi(StateId, StateId, IActions* _actions, IGuards* _guards)
+        : StateBase(_actions, _guards)
+    {}
+
+    virtual ~ConnectWiFi()
+    {}
+
+    void WiFiConnected() override
+    {
+        SetTransitionDetails(StateId_Sense, Function());
+    }
+
+    StateId GetId() const override { return Id; }
+    
+private:
+    static const StateId Id = StateId_ConnectWiFi;
 
 };
 
