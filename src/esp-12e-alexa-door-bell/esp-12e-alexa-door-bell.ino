@@ -8,30 +8,48 @@
 #include "StateMachine.hpp"
 
 
-class MyStateMachine : public StateMachine
+class DoorbellStateMachine : public StateMachine
 {
 public:
-    MyStateMachine()
+    DoorbellStateMachine()
     {
         InitStateMachine();
     }
 
+    void Execute()
+    {
+      EvaluateEvents();
+    }
+
+    void EvaluateEvents()
+    {
+      switch (CurrentState())
+      {
+      case StateId_Sense:
+          if (!digitalRead(4))
+          {
+              SwitchPushed();
+          }
+          break;
+      }
+    }
+
+    //Actions
     void NotifyAlexa() override {
         Serial.printf("NotifyAlexa() called\r\n");
     }
 };
-MyStateMachine* myStateMachine;
+DoorbellStateMachine* stateMachine;
 
 int epoch = 0;
-#define GPIO_4 4
 
 void setup() {
-  pinMode(GPIO_4, INPUT);
+  pinMode(4, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   gdbstub_init();
   Serial.println("setup()");  
-  myStateMachine = new MyStateMachine();
+  stateMachine = new DoorbellStateMachine();
   WiFi.begin(ssid, pass);
 }
 
@@ -46,16 +64,9 @@ void loop() {
     Serial.println("WiFi Connected");
   }
 
-  StateId currentState = myStateMachine->CurrentState();
+  StateId currentState = stateMachine->CurrentState();
   std::string name = (StateNames.find(currentState))->second;
   Serial.printf("State: %s\r\n", name.c_str());
-  switch (currentState)
-  {
-  case StateId_Sense:
-      if (!digitalRead(GPIO_4))
-      {
-          myStateMachine->SwitchPushed();
-      }
-      break;
-  }
+
+  stateMachine->Execute();
 }
