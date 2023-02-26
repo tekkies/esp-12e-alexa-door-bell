@@ -6,6 +6,13 @@ Announce the doorbell on Alexa using ESP-12E WiFi module from a 15V AC or DC pow
 
 Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
 
+## LED States
+``_ _ _ _`` WiFi Connecting
+
+``. . . .`` Sensing
+
+``_______`` Report
+
 ## Circuit Design
 ![Circuit Design](hardware/esp-12e-alexa-door-bell.TinyCad.png)
 

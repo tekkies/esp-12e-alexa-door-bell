@@ -43,6 +43,10 @@ public:
           SwitchPushed();
         }
         break;
+
+      case StateId_Report:
+        FlashMode(1000,0);
+        break;
       }
     }
 
@@ -67,14 +71,8 @@ void setup() {
 
 
 void loop() {
-  digitalWrite(LED_BUILTIN,millis() % (flashOnMs+flashOffMs) > flashOnMs);
   epoch++;
-  Serial.println(epoch);
-  
-  if(WiFi.status() == WL_CONNECTED) {
-    Serial.println("");
-    Serial.println("WiFi Connected");
-  }
+  digitalWrite(LED_BUILTIN,millis() % (flashOnMs+flashOffMs) > flashOnMs);
 
   StateId currentState = stateMachine->CurrentState();
   std::string name = (StateNames.find(currentState))->second;
