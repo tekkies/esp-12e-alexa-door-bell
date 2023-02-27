@@ -21,27 +21,21 @@ public:
 
     StateId CurrentState() const override { return currentState->GetId(); }
 
-    void NoAction() override
+    void SwitchPushed() override
     {
-        currentState->NoAction();
+        currentState->SwitchPushed();
+        ChangeStateIfNecessary();
+    }
+    
+    void ReportSuccessful() override
+    {
+        currentState->ReportSuccessful();
         ChangeStateIfNecessary();
     }
     
     void WiFiConnected() override
     {
         currentState->WiFiConnected();
-        ChangeStateIfNecessary();
-    }
-    
-    void Complete() override
-    {
-        currentState->Complete();
-        ChangeStateIfNecessary();
-    }
-    
-    void SwitchPushed() override
-    {
-        currentState->SwitchPushed();
         ChangeStateIfNecessary();
     }
     
@@ -67,9 +61,6 @@ private:
             break;
         case StateId_Report:
             currentState = new (stateStorage)Report(previousStateId, toState, this, this);
-            break;
-        case StateId_Delay:
-            currentState = new (stateStorage)Delay(previousStateId, toState, this, this);
             break;
         default:
             break;

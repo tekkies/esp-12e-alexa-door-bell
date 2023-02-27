@@ -19,10 +19,9 @@ class IEvents
 {
 public:
     virtual ~IEvents() {}
-    virtual void NoAction() {}
-    virtual void WiFiConnected() {}
-    virtual void Complete() {}
     virtual void SwitchPushed() {}
+    virtual void ReportSuccessful() {}
+    virtual void WiFiConnected() {}
 };
 
 }

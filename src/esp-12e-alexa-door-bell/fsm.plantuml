@@ -2,5 +2,4 @@
 ConnectWiFi --> Sense: WiFiConnected
 Sense --> Report: SwitchPushed
 Report : <<entry>> / NotifyAlexa
-Report --> Delay : NoAction
-Delay --> Sense : Complete
+Report --> Sense : ReportSuccessful

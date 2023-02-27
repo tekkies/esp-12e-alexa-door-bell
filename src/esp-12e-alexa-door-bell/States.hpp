@@ -102,29 +102,7 @@ public:
     virtual ~Report()
     {}
 
-    void NoAction() override
-    {
-        SetTransitionDetails(StateId_Delay, Function());
-    }
-
-    StateId GetId() const override { return Id; }
-    
-private:
-    static const StateId Id = StateId_Report;
-
-};
-
-class Delay : public StateBase
-{
-public:
-    Delay(StateId, StateId, IActions* _actions, IGuards* _guards)
-        : StateBase(_actions, _guards)
-    {}
-
-    virtual ~Delay()
-    {}
-
-    void Complete() override
+    void ReportSuccessful() override
     {
         SetTransitionDetails(StateId_Sense, Function());
     }
@@ -132,7 +110,7 @@ public:
     StateId GetId() const override { return Id; }
     
 private:
-    static const StateId Id = StateId_Delay;
+    static const StateId Id = StateId_Report;
 
 };
 
