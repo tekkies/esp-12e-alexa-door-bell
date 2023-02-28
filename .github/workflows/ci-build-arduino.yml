@@ -2,9 +2,9 @@ name: Ardiono CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", ."develop", "ci-build-arduino" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
 
 jobs:
 
