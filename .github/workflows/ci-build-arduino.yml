@@ -17,4 +17,4 @@ jobs:
     - name: Build Arduino
       run: |
         find .
-        arduino-cli
+        arduino-cli compile src/esp-12e-alexa-door-bell
