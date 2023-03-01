@@ -1,11 +1,13 @@
 //Builkd using Arduino IDE
 //Arduino ISE Board: NodeMCU 1.0 (ESP-12E Module)
-#include <GDBStub.h>
+#if !RELEASE
+  #include <GDBStub.h>
+#endif
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 
-#include "config.h"
-#include "secrets.h"
+#include "config.h" //Rename config.h.sample
+#include "secrets.h" //rename secrets.h.sample
 #include "StateMachine.hpp"
 
 
@@ -18,9 +20,7 @@ void FlashMode(int onMs, int offMs)
 }
 
 WiFiClientSecure httpsClient;
-const char* host = "webhook.site";
 const uint16_t port = 443;
-const char* page = "/7a5ecee2-0d25-49d8-8f81-1bee70adbafc";
 
 class DoorbellStateMachine : public StateMachine
 {
@@ -90,7 +90,9 @@ void setup() {
   pinMode(4, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
-  gdbstub_init();
+  #if DEBUG
+    gdbstub_init();
+  #endif
   Serial.println("setup()");  
   stateMachine = new DoorbellStateMachine();
   WiFi.begin(ssid, pass);
