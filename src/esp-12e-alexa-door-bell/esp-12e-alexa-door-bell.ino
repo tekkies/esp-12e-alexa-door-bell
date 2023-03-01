@@ -1,6 +1,6 @@
 //Builkd using Arduino IDE
 //Arduino ISE Board: NodeMCU 1.0 (ESP-12E Module)
-#if !RELEASE
+#if DEBUG
   #include <GDBStub.h>
 #endif
 #include <ESP8266WiFi.h>
