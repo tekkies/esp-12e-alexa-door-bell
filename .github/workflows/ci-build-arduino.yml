@@ -16,4 +16,5 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build Arduino
       run: |
-        arduino-cli compile --fqbn "esp8266:esp8266:nodemcuv2:xtal=80,vt=flash,exception=disabled,stacksmash=disabled,ssl=all,mmu=3232,non32xfer=fast,eesz=4M2M,led=2,ip=lm2f,dbg=Disabled,lvl=None____,wipe=none,baud=115200" src/esp-12e-alexa-door-bell
+        #arduino-cli compile --fqbn "esp8266:esp8266:nodemcuv2:xtal=80,vt=flash,exception=disabled,stacksmash=disabled,ssl=all,mmu=3232,non32xfer=fast,eesz=4M2M,led=2,ip=lm2f,dbg=Disabled,lvl=None____,wipe=none,baud=115200" src/esp-12e-alexa-door-bell
+        arduino-cli compile --fqbn esp8266:esp8266:nodemcuv2 src/esp-12e-alexa-door-bell
