@@ -20,4 +20,4 @@ jobs:
         find .
         cp src/esp-12e-alexa-door-bell/config.h.sample src/esp-12e-alexa-door-bell/config.h
         cp src/esp-12e-alexa-door-bell/secrets.h.sample src/esp-12e-alexa-door-bell/secrets.h
-        arduino-cli compile --fqbn esp8266:esp8266:nodemcuv2 src/esp-12e-alexa-door-bell
+        arduino-cli compile --fqbn esp8266:esp8266:nodemcuv2 src/esp-12e-alexa-door-bell "build.extra_flags=\"-DRELEASE" --preprocess
