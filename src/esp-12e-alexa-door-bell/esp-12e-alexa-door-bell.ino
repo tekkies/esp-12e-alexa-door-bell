@@ -4,8 +4,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 
-#include "config.h"
-#include "secrets.h"
+#include "config.h"  // Copy config.h.sample
+#include "secrets.h" // Copy secrets.h.sample
 #include "StateMachine.hpp"
 
 
@@ -18,9 +18,7 @@ void FlashMode(int onMs, int offMs)
 }
 
 WiFiClientSecure httpsClient;
-const char* host = "webhook.site";
 const uint16_t port = 443;
-const char* page = "/7a5ecee2-0d25-49d8-8f81-1bee70adbafc";
 
 class DoorbellStateMachine : public StateMachine
 {
@@ -39,14 +37,14 @@ public:
       case StateId_ConnectWiFi:
         FlashMode(500, 500);
         if(WiFi.status() == WL_CONNECTED) {
-          WiFiConnected();
+          WiFi_is_connected();
         }
         break;
 
       case StateId_Sense:
         FlashMode(10, 200);
         if (!digitalRead(4)) {
-          SwitchPushed();
+          SwitchIsPushed();
         }
         break;
 
@@ -60,27 +58,35 @@ public:
     }
 
     //Actions
+    void Print_connected() override {
+      Serial.println("WiFi Connected");
+    }
+
+    void PrintSwitchIsPushed() override {
+      Serial.println("Switch was pushed");
+    }
+
     void NotifyAlexa() override {
-        Serial.printf("NotifyAlexa() called\r\n");
-        httpsClient.setInsecure();
-        if (!httpsClient.connect(host, port)) {
-          Serial.println("Connection failed");
-        }
-        httpsClient.print(String("GET ") + page + " HTTP/1.1\r\n" +
-               "Host: " + host + "\r\n" +
-               "User-Agent: esp-12e-alexa-door-bell\r\n" +
-               "Connection: close\r\n\r\n");
-        while (httpsClient.connected()) {
-          String line = httpsClient.readStringUntil('\n');
-          Serial.println(line);
-          if (line == "\r") {
-            Serial.println("Headers received");
-            break;
+      Serial.printf("NotifyAlexa() called\r\n");
+      httpsClient.setInsecure();
+      if (!httpsClient.connect(host, port)) {
+        Serial.println("Connection failed");
+      }
+      httpsClient.print(String("GET ") + page + " HTTP/1.1\r\n" +
+              "Host: " + host + "\r\n" +
+              "User-Agent: esp-12e-alexa-door-bell\r\n" +
+              "Connection: close\r\n\r\n");
+      while (httpsClient.connected()) {
+        String line = httpsClient.readStringUntil('\n');
+        Serial.println(line);
+        if (line.startsWith("HTTP/1.1 200 OK")) {
+          Serial.println("Report Successful");
+          ReportSuccessful();
+          break;
         }
       }
     }
-
-
+    
 };
 DoorbellStateMachine* stateMachine;
 
@@ -91,7 +97,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   gdbstub_init();
-  Serial.println("setup()");  
+  Serial.println("\r\n\r\nsetup()");  
   stateMachine = new DoorbellStateMachine();
   WiFi.begin(ssid, pass);
 }

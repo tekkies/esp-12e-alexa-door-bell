@@ -21,21 +21,21 @@ public:
 
     StateId CurrentState() const override { return currentState->GetId(); }
 
-    void SwitchPushed() override
+    void SwitchIsPushed() override
     {
-        currentState->SwitchPushed();
+        currentState->SwitchIsPushed();
+        ChangeStateIfNecessary();
+    }
+    
+    void WiFi_is_connected() override
+    {
+        currentState->WiFi_is_connected();
         ChangeStateIfNecessary();
     }
     
     void ReportSuccessful() override
     {
         currentState->ReportSuccessful();
-        ChangeStateIfNecessary();
-    }
-    
-    void WiFiConnected() override
-    {
-        currentState->WiFiConnected();
         ChangeStateIfNecessary();
     }
     
