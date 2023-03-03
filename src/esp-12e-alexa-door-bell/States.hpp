@@ -75,9 +75,9 @@ public:
     virtual ~Sense()
     {}
 
-    void SwitchPushed() override
+    void SwitchIsPushed() override
     {
-        SetTransitionDetails(StateId_Report, Function());
+        SetTransitionDetails(StateId_Report, Function(&IActions::PrintSwitchIsPushed, actions));
     }
 
     StateId GetId() const override { return Id; }
