@@ -1,5 +1,11 @@
 [*] --> ConnectWiFi
-ConnectWiFi --> Sense: WiFiConnected
+
+
+ConnectWiFi --> Sense: WiFi_is_connected / Print_connected
+
 Sense --> Report: SwitchPushed
+
 Report : <<entry>> / NotifyAlexa
+
 Report --> Sense : ReportSuccessful
+
