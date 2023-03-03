@@ -44,7 +44,7 @@ public:
       case StateId_Sense:
         FlashMode(10, 200);
         if (!digitalRead(4)) {
-          SwitchPushed();
+          SwitchIsPushed();
         }
         break;
 
@@ -62,7 +62,9 @@ public:
       Serial.println("WiFi Connected");
     }
 
-
+    void PrintSwitchIsPushed() override {
+      Serial.println("Switch was pushed");
+    }
 
     void NotifyAlexa() override {
         Serial.printf("NotifyAlexa() called\r\n");

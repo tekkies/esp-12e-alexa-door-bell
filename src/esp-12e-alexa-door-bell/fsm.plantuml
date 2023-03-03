@@ -3,7 +3,7 @@
 
 ConnectWiFi --> Sense: WiFi_is_connected / Print_connected
 
-Sense --> Report: SwitchPushed
+Sense --> Report: SwitchIsPushed / PrintSwitchIsPushed
 
 Report : <<entry>> / NotifyAlexa
 
