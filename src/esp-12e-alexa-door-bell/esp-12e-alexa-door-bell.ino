@@ -67,26 +67,26 @@ public:
     }
 
     void NotifyAlexa() override {
-        Serial.printf("NotifyAlexa() called\r\n");
-        httpsClient.setInsecure();
-        if (!httpsClient.connect(host, port)) {
-          Serial.println("Connection failed");
-        }
-        httpsClient.print(String("GET ") + page + " HTTP/1.1\r\n" +
-               "Host: " + host + "\r\n" +
-               "User-Agent: esp-12e-alexa-door-bell\r\n" +
-               "Connection: close\r\n\r\n");
-        while (httpsClient.connected()) {
-          String line = httpsClient.readStringUntil('\n');
-          Serial.println(line);
-          if (line == "\r") {
-            Serial.println("Headers received");
-            break;
+      Serial.printf("NotifyAlexa() called\r\n");
+      httpsClient.setInsecure();
+      if (!httpsClient.connect(host, port)) {
+        Serial.println("Connection failed");
+      }
+      httpsClient.print(String("GET ") + page + " HTTP/1.1\r\n" +
+              "Host: " + host + "\r\n" +
+              "User-Agent: esp-12e-alexa-door-bell\r\n" +
+              "Connection: close\r\n\r\n");
+      while (httpsClient.connected()) {
+        String line = httpsClient.readStringUntil('\n');
+        Serial.println(line);
+        if (line.startsWith("HTTP/1.1 200 OK")) {
+          Serial.println("Report Successful");
+          ReportSuccessful();
+          break;
         }
       }
     }
-
-
+    
 };
 DoorbellStateMachine* stateMachine;
 
