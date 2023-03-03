@@ -1,4 +1,7 @@
 # esp-12e-alexa-door-bell
+
+[![stability-wip](https://img.shields.io/badge/stability-wip-lightgrey.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#work-in-progress)
+
 Announce the doorbell on Alexa using ESP-12E WiFi module from a 15V AC or DC power supply.
 
 ## Software Design
@@ -21,12 +24,6 @@ Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
 
 ## Power Supply Design
  ![Power Supply Simulator](hardware/power-supply.ltspice.png)
-
-# Development
-* Generate FSM template code
-  * `` docker run -v $(pwd):/run tekkiesuk/flohsm:latest fsm.plantuml``
-    * A couple or warnings is normal
-* Build binary in Arduino Studio
 
  # Credits
 Built standing on the shoulders of these giants:
