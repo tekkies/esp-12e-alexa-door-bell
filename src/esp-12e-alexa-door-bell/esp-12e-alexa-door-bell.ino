@@ -4,8 +4,8 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClientSecure.h>
 
-#include "config.h"
-#include "secrets.h"
+#include "config.h"  // Copy config.h.sample
+#include "secrets.h" // Copy secrets.h.sample
 #include "StateMachine.hpp"
 
 
@@ -18,9 +18,7 @@ void FlashMode(int onMs, int offMs)
 }
 
 WiFiClientSecure httpsClient;
-const char* host = "webhook.site";
 const uint16_t port = 443;
-const char* page = "/7a5ecee2-0d25-49d8-8f81-1bee70adbafc";
 
 class DoorbellStateMachine : public StateMachine
 {
@@ -39,7 +37,7 @@ public:
       case StateId_ConnectWiFi:
         FlashMode(500, 500);
         if(WiFi.status() == WL_CONNECTED) {
-          WiFiConnected();
+          WiFi_is_connected();
         }
         break;
 
@@ -60,6 +58,12 @@ public:
     }
 
     //Actions
+    void Print_connected() override {
+      Serial.println("WiFi Connected");
+    }
+
+
+
     void NotifyAlexa() override {
         Serial.printf("NotifyAlexa() called\r\n");
         httpsClient.setInsecure();
@@ -91,7 +95,7 @@ void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   gdbstub_init();
-  Serial.println("setup()");  
+  Serial.println("\r\n\r\nsetup()");  
   stateMachine = new DoorbellStateMachine();
   WiFi.begin(ssid, pass);
 }

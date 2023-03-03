@@ -25,6 +25,12 @@ Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
 ## Power Supply Design
  ![Power Supply Simulator](hardware/power-supply.ltspice.png)
 
+# Development
+* Generate FSM template code
+  * `` docker run -v $(pwd):/run tekkiesuk/flohsm:latest fsm.plantuml``
+    * A couple or warnings is normal
+* Build binary in Arduino Studio
+
  # Credits
 Built standing on the shoulders of these giants:
  - [LTspice](https://www.analog.com/en/design-center/design-tools-and-calculators/ltspice-simulator.html)

@@ -12,6 +12,7 @@ class IActions
 {
 public:
     virtual ~IActions() {}
+    virtual void Print_connected() = 0;
     virtual void NotifyAlexa() = 0;
 };
 
@@ -19,9 +20,9 @@ class IEvents
 {
 public:
     virtual ~IEvents() {}
-    virtual void SwitchPushed() {}
+    virtual void WiFi_is_connected() {}
     virtual void ReportSuccessful() {}
-    virtual void WiFiConnected() {}
+    virtual void SwitchPushed() {}
 };
 
 }

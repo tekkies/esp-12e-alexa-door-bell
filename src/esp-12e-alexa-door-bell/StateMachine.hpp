@@ -21,9 +21,9 @@ public:
 
     StateId CurrentState() const override { return currentState->GetId(); }
 
-    void SwitchPushed() override
+    void WiFi_is_connected() override
     {
-        currentState->SwitchPushed();
+        currentState->WiFi_is_connected();
         ChangeStateIfNecessary();
     }
     
@@ -33,9 +33,9 @@ public:
         ChangeStateIfNecessary();
     }
     
-    void WiFiConnected() override
+    void SwitchPushed() override
     {
-        currentState->WiFiConnected();
+        currentState->SwitchPushed();
         ChangeStateIfNecessary();
     }
     

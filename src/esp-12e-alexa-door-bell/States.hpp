@@ -53,9 +53,9 @@ public:
     virtual ~ConnectWiFi()
     {}
 
-    void WiFiConnected() override
+    void WiFi_is_connected() override
     {
-        SetTransitionDetails(StateId_Sense, Function());
+        SetTransitionDetails(StateId_Sense, Function(&IActions::Print_connected, actions));
     }
 
     StateId GetId() const override { return Id; }
