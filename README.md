@@ -55,12 +55,14 @@ Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
  
 ### Debug
 #### Using VS Code
-  * Open the .ino file
-  * Close the serial monitor if you have it open
+* Open the .ino file
+* Close the serial monitor if you have it open
 * First Build & Deploy
+  * **Remember to redeploy if you change the code**
 * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Upload
 * Place a breakpoint inside ``loop()``
 * Press <kbd>F5</kbd>
+* **CAVEAT:** It appears only one breakpoint can be set at a time due to hardware limitations
 
  # Credits
 Built standing on the shoulders of these giants:
