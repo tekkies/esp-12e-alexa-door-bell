@@ -27,11 +27,40 @@ Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
 ## Power Supply Design
  ![Power Supply Simulator](hardware/power-supply.ltspice.png)
 
-# Development
-* Generate FSM template code
+# Development Environment
+## Windows
+### Toolchain
+* [Install Arduino IDE and ESP8266 Suport](https://arduino-esp8266.readthedocs.io/en/latest/installing.html)
+* [Visual Studio Code](https://code.visualstudio.com/download)
+  * Install Plugin: "Arduino" by Microsoft
+
+### Build & Deploy
+* Regenerate state machine template code if the state diagram has changed
+* Run from folder src\esp-12e-alexa-door-bell
+  
+#### Using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
+  * FloHsm.py fsm.plantuml
+#### Using Docker
   * `` docker run -v $(pwd):/run tekkiesuk/flohsm:latest fsm.plantuml``
     * A couple or warnings is normal
-* Build binary in Arduino Studio
+
+#### Using VS Code
+  * Open the .ino file
+  * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Select Serial Port
+  * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Upload
+#### Using Arduino IDE
+* Select Board NODEMCU 1.0
+* Select Port
+* Sketch, Upload
+ 
+### Debug
+#### Using VS Code
+  * Open the .ino file
+  * Close the serial monitor if you have it open
+* First Build & Deploy
+* <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Upload
+* Place a breakpoint inside ``loop()``
+* Press <kbd>F5</kbd>
 
  # Credits
 Built standing on the shoulders of these giants:
