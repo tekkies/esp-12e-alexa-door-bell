@@ -6,10 +6,30 @@ Announce the doorbell on Alexa using ESP-12E WiFi module from a 15V AC or DC pow
 
 A practical teaching project to learn electronics and coding with my kid: "It's like a puzzle that when you complete, your life get's an upgrade"
 
-## Software Design
+Designing the high-level program flow using PlantUML, then generating the state machine C++ abstract classes allows very simple program design around the setup() loop() Arduino paradigm. 
+
+## PlantUML Based Program Flow
 ![Software Design](src/esp-12e-alexa-door-bell/fsm.plantuml.png)
 
-Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
+### State Machine Implementation
+[FloHsm](https://github.com/tzijnge/FloHsm) is used to convert the PlantUML source used to crete the diagram above to generate C++ abstract classes. The details of the states, events and actions are then implemented in a concrete subclass, e.g.
+
+#### State/Event
+Here, the state case statement is called in every time loop() runs, so on each loop, the code checks to see it the button is pressed.  If so, the event triggers and we move to the next state.
+```
+case StateId_Sense:
+  if (!digitalRead(4)) {
+    SwitchIsPushed(); //Trigger an event
+  }
+  break;
+```
+#### Action
+```
+void NotifyAlexa() override {
+      Serial.printf("NotifyAlexa() called\r\n");
+      ...
+}
+```
 
 ## LED States
 ``_ _ _ _`` WiFi Connecting
