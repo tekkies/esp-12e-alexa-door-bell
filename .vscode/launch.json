@@ -6,7 +6,7 @@
         "version": "0.2.0",
         "configurations": [
             {
-                "name": "(gdb) Launch",
+                "name": "(gdb) ESP8266",
                 "type": "cppdbg",
                 "request": "launch",
             "program": "${workspaceRoot}/bin/esp-12e-alexa-door-bell.ino.elf",
