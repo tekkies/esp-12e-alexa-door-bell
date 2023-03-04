@@ -47,7 +47,8 @@ Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
 #### Using VS Code
   * Open the .ino file
   * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Select Serial Port
-  * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Upload
+  * <kbd>Ctrl</kbd> + <kbd>ALT</kbd> + <kbd>U</kbd>
+    * Alternative: <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Upload
 #### Using Arduino IDE
 * Select Board NODEMCU 1.0
 * Select Port
@@ -56,7 +57,7 @@ Code generated using [FloHsm by tzijnge](https://github.com/tzijnge/FloHsm)
 ### Debug
 #### Using VS Code
 * Open the .ino file
-* Close the serial monitor if you have it open
+* Close the serial monitor if you have it open, otherwise the debugger will not be able to connect
 * First Build & Deploy
   * **Remember to redeploy if you change the code**
 * <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>, Arduino: Upload
