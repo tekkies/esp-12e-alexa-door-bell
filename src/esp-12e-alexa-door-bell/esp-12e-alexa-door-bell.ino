@@ -67,6 +67,7 @@ public:
     }
 
     void NotifyAlexa() override {
+      digitalWrite(LED_BUILTIN, 0);
       Serial.printf("NotifyAlexa() called\r\n");
       httpsClient.setInsecure();
       if (!httpsClient.connect(host, port)) {
