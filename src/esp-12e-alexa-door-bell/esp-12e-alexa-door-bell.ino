@@ -72,6 +72,7 @@ public:
       if (!httpsClient.connect(host, port)) {
         Serial.println("Connection failed");
       }
+      Serial.printf("Calling http://%s%s", host, page);
       httpsClient.print(String("GET ") + page + " HTTP/1.1\r\n" +
               "Host: " + host + "\r\n" +
               "User-Agent: esp-12e-alexa-door-bell\r\n" +
@@ -93,11 +94,13 @@ DoorbellStateMachine* stateMachine;
 int epoch = 0;
 
 void setup() {
-  pinMode(4, INPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   gdbstub_init();
+  pinMode(4, INPUT_PULLUP);
+  pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("\r\n\r\nsetup()");  
+  Serial.printf("Web hook URL: http://%s%s", host, page);
+
   stateMachine = new DoorbellStateMachine();
   WiFi.begin(ssid, pass);
 }
