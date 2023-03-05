@@ -43,7 +43,7 @@ public:
 
       case StateId_Sense:
         FlashMode(10, 200);
-        if (!digitalRead(4)) {
+        if (digitalRead(4)) {
           SwitchIsPushed();
         }
         break;
@@ -97,7 +97,7 @@ int epoch = 0;
 void setup() {
   Serial.begin(115200);
   gdbstub_init();
-  pinMode(4, INPUT_PULLUP);
+  pinMode(4, INPUT);
   pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("\r\n\r\nsetup()");  
   Serial.printf("Web hook URL: http://%s%s", host, page);
