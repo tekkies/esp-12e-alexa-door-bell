@@ -9,15 +9,10 @@
 #include "StateMachine.hpp"
 
 
-int flashOnMs = 1;
-int flashOffMs = 1;
-int flashes = 0;
-int flashIndex = 0;
-void flashMode(int onMs, int offMs)
-{
-  flashOnMs = onMs;
-  flashOffMs = offMs;
-}
+#define FLASH_MARK 10
+#define FLASH_PERIOD 150
+#define SEQUENCE_PERIOD (FLASH_PERIOD*10)
+int flashes = 1;
 
 void ledWrite(bool state)
 {
@@ -42,21 +37,20 @@ public:
     {
       switch (CurrentState()) {
       case StateId_ConnectWiFi:
-        flashMode(500, 500);
+        flashes = 2;
         if(WiFi.status() == WL_CONNECTED) {
           WiFi_is_connected();
         }
         break;
 
       case StateId_Sense:
-        flashMode(10, 200);
+        flashes = 3;
         if (digitalRead(4)) {
           SwitchIsPushed();
         }
         break;
 
       case StateId_Report:
-        flashMode(1000,0);
         //if (http.GET() == HTTP_CODE_OK) {
         //  ReportSuccessful();
         //}
@@ -118,7 +112,7 @@ void setup() {
 void loop() {
   epoch++;
   
-  ledWrite(millis()%100<10 && millis()%1000<300);
+  ledWrite(millis()%FLASH_PERIOD<FLASH_MARK && millis()%SEQUENCE_PERIOD<flashes*FLASH_PERIOD);
   
 
   StateId currentState = stateMachine->CurrentState();

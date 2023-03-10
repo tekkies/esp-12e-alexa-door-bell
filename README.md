@@ -32,11 +32,11 @@ void NotifyAlexa() override {
 ```
 
 ## LED States
-``_ _ _ _`` WiFi Connecting
+``..    `` WiFi Connecting
 
-``. . . .`` Sensing
+``...   `` Sensing
 
-``_______`` Report
+``______`` Reporting
 
 ## Circuit Design
 ![Circuit Design](hardware/esp-12e-alexa-door-bell.TinyCad.png)
