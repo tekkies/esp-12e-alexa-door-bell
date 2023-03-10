@@ -11,10 +11,17 @@
 
 int flashOnMs = 1;
 int flashOffMs = 1;
-void FlashMode(int onMs, int offMs)
+int flashes = 0;
+int flashIndex = 0;
+void flashMode(int onMs, int offMs)
 {
   flashOnMs = onMs;
   flashOffMs = offMs;
+}
+
+void ledWrite(bool state)
+{
+  digitalWrite(LED_BUILTIN,!state);
 }
 
 WiFiClientSecure httpsClient;
@@ -35,21 +42,21 @@ public:
     {
       switch (CurrentState()) {
       case StateId_ConnectWiFi:
-        FlashMode(500, 500);
+        flashMode(500, 500);
         if(WiFi.status() == WL_CONNECTED) {
           WiFi_is_connected();
         }
         break;
 
       case StateId_Sense:
-        FlashMode(10, 200);
+        flashMode(10, 200);
         if (digitalRead(4)) {
           SwitchIsPushed();
         }
         break;
 
       case StateId_Report:
-        FlashMode(1000,0);
+        flashMode(1000,0);
         //if (http.GET() == HTTP_CODE_OK) {
         //  ReportSuccessful();
         //}
@@ -67,7 +74,7 @@ public:
     }
 
     void NotifyAlexa() override {
-      digitalWrite(LED_BUILTIN, 0);
+      ledWrite(true);
       Serial.printf("NotifyAlexa() called\r\n");
       httpsClient.setInsecure();
       if (!httpsClient.connect(host, port)) {
@@ -87,6 +94,7 @@ public:
           break;
         }
       }
+      ledWrite(false);
     }
     
 };
@@ -109,7 +117,9 @@ void setup() {
 
 void loop() {
   epoch++;
-  digitalWrite(LED_BUILTIN,millis() % (flashOnMs+flashOffMs) > flashOnMs);
+  
+  ledWrite(millis()%100<10 && millis()%1000<300);
+  
 
   StateId currentState = stateMachine->CurrentState();
   std::string name = (StateNames.find(currentState))->second;
