@@ -9,7 +9,7 @@ A practical teaching project to learn electronics and coding with my kid: "It's 
 Designing the high-level program flow using PlantUML, then generating the state machine C++ abstract classes allows very simple program design around the setup() loop() Arduino paradigm. 
 ## Video
 
-[![Demo Video](https://i.imgur.com/TIgXqf7qYXw.png)](http://www.youtube.com/watch?v=TIgXqf7qYXw)
+[![Demo Video](http://img.youtube.com/vi/TIgXqf7qYXw/0.jpg)](http://www.youtube.com/watch?v=TIgXqf7qYXw)
 
 ## PlantUML Based Program Flow
 ![Software Design](src/esp-12e-alexa-door-bell/fsm.plantuml.png)
