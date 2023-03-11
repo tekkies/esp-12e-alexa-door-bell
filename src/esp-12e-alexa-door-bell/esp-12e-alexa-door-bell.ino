@@ -9,12 +9,14 @@
 #include "StateMachine.hpp"
 
 
-int flashOnMs = 1;
-int flashOffMs = 1;
-void FlashMode(int onMs, int offMs)
+const long FLASH_MARK=10;
+const long FLASH_PERIOD=150;
+const long SEQUENCE_PERIOD=(FLASH_PERIOD*10);
+int flashes = 1;
+
+void ledWrite(bool state)
 {
-  flashOnMs = onMs;
-  flashOffMs = offMs;
+  digitalWrite(LED_BUILTIN,!state);
 }
 
 WiFiClientSecure httpsClient;
@@ -35,21 +37,20 @@ public:
     {
       switch (CurrentState()) {
       case StateId_ConnectWiFi:
-        FlashMode(500, 500);
+        flashes = 2;
         if(WiFi.status() == WL_CONNECTED) {
           WiFi_is_connected();
         }
         break;
 
       case StateId_Sense:
-        FlashMode(10, 200);
-        if (!digitalRead(4)) {
+        flashes = 3;
+        if (digitalRead(4)) {
           SwitchIsPushed();
         }
         break;
 
       case StateId_Report:
-        FlashMode(1000,0);
         //if (http.GET() == HTTP_CODE_OK) {
         //  ReportSuccessful();
         //}
@@ -67,11 +68,13 @@ public:
     }
 
     void NotifyAlexa() override {
+      ledWrite(true);
       Serial.printf("NotifyAlexa() called\r\n");
       httpsClient.setInsecure();
       if (!httpsClient.connect(host, port)) {
         Serial.println("Connection failed");
       }
+      Serial.printf("Calling http://%s%s", host, page);
       httpsClient.print(String("GET ") + page + " HTTP/1.1\r\n" +
               "Host: " + host + "\r\n" +
               "User-Agent: esp-12e-alexa-door-bell\r\n" +
@@ -85,6 +88,7 @@ public:
           break;
         }
       }
+      ledWrite(false);
     }
     
 };
@@ -93,11 +97,13 @@ DoorbellStateMachine* stateMachine;
 int epoch = 0;
 
 void setup() {
-  pinMode(4, INPUT);
-  pinMode(LED_BUILTIN, OUTPUT);
   Serial.begin(115200);
   gdbstub_init();
+  pinMode(4, INPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
   Serial.println("\r\n\r\nsetup()");  
+  Serial.printf("Web hook URL: http://%s%s", host, page);
+
   stateMachine = new DoorbellStateMachine();
   WiFi.begin(ssid, pass);
 }
@@ -105,7 +111,9 @@ void setup() {
 
 void loop() {
   epoch++;
-  digitalWrite(LED_BUILTIN,millis() % (flashOnMs+flashOffMs) > flashOnMs);
+  long msSinceBoot = millis();
+  ledWrite(msSinceBoot%FLASH_PERIOD<FLASH_MARK && msSinceBoot%SEQUENCE_PERIOD<flashes*FLASH_PERIOD);
+  
 
   StateId currentState = stateMachine->CurrentState();
   std::string name = (StateNames.find(currentState))->second;
