@@ -7,6 +7,9 @@ Announce the doorbell on Alexa using ESP-12E WiFi module from a 15V AC or DC pow
 A practical teaching project to learn electronics and coding with my kid: "It's like a puzzle that when you complete, your life get's an upgrade"
 
 Designing the high-level program flow using PlantUML, then generating the state machine C++ abstract classes allows very simple program design around the setup() loop() Arduino paradigm. 
+## Video
+
+[![Demo Video](https://i.imgur.com/C6UfwUz.png)](http://www.youtube.com/watch?v=QmcSiFRWsOw)
 
 ## PlantUML Based Program Flow
 ![Software Design](src/esp-12e-alexa-door-bell/fsm.plantuml.png)
