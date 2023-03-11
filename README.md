@@ -1,6 +1,6 @@
 # esp-12e-alexa-door-bell
 
-[![stability-alpha](https://img.shields.io/badge/stability-alpha-f4d03f.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#alpha)
+[![stability-release-candidate](https://img.shields.io/badge/stability-pre--release-48c9b0.svg)](https://github.com/mkenney/software-guides/blob/master/STABILITY-BADGES.md#release-candidate)
 
 Announce the doorbell on Alexa using ESP-12E WiFi module from a 15V AC or DC power supply.
 
