@@ -9,9 +9,9 @@
 #include "StateMachine.hpp"
 
 
-#define FLASH_MARK 10
-#define FLASH_PERIOD 150
-#define SEQUENCE_PERIOD (FLASH_PERIOD*10)
+const long FLASH_MARK=10;
+const long FLASH_PERIOD=150;
+const long SEQUENCE_PERIOD=(FLASH_PERIOD*10);
 int flashes = 1;
 
 void ledWrite(bool state)
@@ -111,8 +111,8 @@ void setup() {
 
 void loop() {
   epoch++;
-  
-  ledWrite(millis()%FLASH_PERIOD<FLASH_MARK && millis()%SEQUENCE_PERIOD<flashes*FLASH_PERIOD);
+  long msSinceBoot = millis();
+  ledWrite(msSinceBoot%FLASH_PERIOD<FLASH_MARK && msSinceBoot%SEQUENCE_PERIOD<flashes*FLASH_PERIOD);
   
 
   StateId currentState = stateMachine->CurrentState();
